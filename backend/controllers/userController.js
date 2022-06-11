@@ -78,13 +78,14 @@ const loginUser = asyncHandler(async (req, res) => {
 const getMe = asyncHandler(async (req, res) => {
     // When user logs with the correct Credentials
     // We grab the id, name and email from the user in the DB
-  const { _id, name, email } = await User.findById(req.user.id);
+  // const { _id, name, email } = await User.findById(req.user.id);
 
-  res.status(200).json({
-    id: _id,
-    name,
-    email,
-  });
+  res.status(200).json(
+    // id: _id,
+    // name,
+    // email,
+    req.user
+  );
 });
 
 // Generate JWT Token
